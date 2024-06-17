@@ -1,4 +1,4 @@
-import bookService from '../../services/bookService';
+import bookService from '../services/bookService';
 
 const state = {
   books: [],

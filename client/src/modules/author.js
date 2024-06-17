@@ -1,4 +1,4 @@
-import authorService from '../../services/authorService';
+import authorService from '../services/authorService';
 
 const state = {
   authors: []
