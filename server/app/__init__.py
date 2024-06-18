@@ -1,8 +1,12 @@
+
 from flask import Flask
-from .config import Config
-from .extensions import db
-from .models import book, author, category
-from .routes.main import main_bp
+from app.config import Config
+from app.extensions import db
+from app.models.book import Book
+from app.models.author import Author
+from app.models.category import Category
+from app.routes.main import main_bp
+
 
 def create_app():
     app = Flask(__name__)
@@ -10,7 +14,12 @@ def create_app():
     
     # Inicializar extensiones
     db.init_app(app)
-    
+
+    with app.app_context():
+       db.create_all()
+            
+     
+
     # Registrar Blueprints
     app.register_blueprint(main_bp)
 

@@ -1,7 +1,6 @@
-from flask import Blueprint
+from app import create_app
 
-main_bp = Blueprint('main', __name__)
+app = create_app()
 
-@main_bp.route('/')
-def index():
-    return " "
+if __name__ == '__main__':
+    app.run(debug=True)
