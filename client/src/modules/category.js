@@ -14,12 +14,14 @@ const actions = {
   fetchCategories({ commit }) {
     categoryService.getAllCategories().then(response => {
       commit('SET_CATEGORIES', response.data);
+    }).catch(error => {
+      console.error("Error fetching categories:", error);
     });
   }
 };
 
 const getters = {
-  allCategories: (state) => state.categories
+  allCategories: state => state.categories
 };
 
 export default {

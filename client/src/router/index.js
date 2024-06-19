@@ -18,12 +18,14 @@ const routes = [
   {
     path: '/books/:id/edit',
     name: 'BookEdit',
-    component: BookEdit
+    component: BookEdit,
+    props: true
   },
   {
     path: '/books/:id',
     name: 'BookDetail',
-    component: BookDetail
+    component: BookDetail,
+    props: true
   }
 ];
 

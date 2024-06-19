@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1>Books</h1>
-    <ul>
-      <li v-for="book in books" :key="book.id">
+    <ul class="book-list">
+      <li v-for="book in books" :key="book.id" class="book-item">
         <router-link :to="`/books/${book.id}`">{{ book.title }}</router-link>
       </li>
     </ul>
@@ -10,17 +9,19 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-
 export default {
-  computed: {
-    ...mapGetters(['allBooks'])
-  },
-  methods: {
-    ...mapActions(['fetchBooks'])
-  },
-  created() {
-    this.fetchBooks();
+  props: {
+    books: Array
   }
 };
 </script>
+
+<style scoped>
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+.book-item {
+  margin: 1em 0;
+}
+</style>

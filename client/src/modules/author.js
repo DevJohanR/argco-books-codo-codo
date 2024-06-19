@@ -14,12 +14,14 @@ const actions = {
   fetchAuthors({ commit }) {
     authorService.getAllAuthors().then(response => {
       commit('SET_AUTHORS', response.data);
+    }).catch(error => {
+      console.error("Error fetching authors:", error);
     });
   }
 };
 
 const getters = {
-  allAuthors: (state) => state.authors
+  allAuthors: state => state.authors
 };
 
 export default {

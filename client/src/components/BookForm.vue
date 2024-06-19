@@ -24,7 +24,7 @@
       <label for="author">Author</label>
       <select v-model="book.author_id" id="author" required>
         <option v-for="author in authors" :key="author.id" :value="author.id">
-          {{ author.first_name }} {{ author.last_name }}
+          {{ author.name }} {{ author.last_name }}
         </option>
       </select>
     </div>
@@ -44,9 +44,10 @@
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      book: {
+  props: {
+    book: {
+      type: Object,
+      default: () => ({
         isbn: '',
         title: '',
         cover: '',
@@ -54,8 +55,8 @@ export default {
         publication_date: '',
         author_id: null,
         category_id: null
-      }
-    };
+      })
+    }
   },
   computed: {
     ...mapGetters({
@@ -64,7 +65,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['createBook', 'updateBook', 'fetchAuthors', 'fetchCategories']),
+    ...mapActions(['fetchAuthors', 'fetchCategories', 'createBook', 'updateBook']),
     handleSubmit() {
       if (this.book.id) {
         this.updateBook({ id: this.book.id, book: this.book });
@@ -80,3 +81,7 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* Tus estilos aquí */
+</style>
