@@ -1,3 +1,4 @@
+#app //models/category.py
 from app.extensions import db
 
 class Category(db.Model):
