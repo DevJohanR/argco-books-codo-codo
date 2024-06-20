@@ -34,7 +34,20 @@ def create_book():
 
 def list_books():
     books = Book.query.all()
-    return jsonify([{'id': book.id, 'title': book.title, 'author_id': book.author_id, 'category_id': book.category_id} for book in books])
+    books_list = [
+        {
+            'id': book.id,
+            'title': book.title,
+            'cover': book.cover,
+            'synopsis': book.synopsis,
+            'publish_date': book.publish_date,
+            'author': {'id': book.author.id, 'name': book.author.name},
+            'category': {'id': book.category.id, 'name': book.category.name}
+        }
+        for book in books
+    ]
+    
+    return jsonify({'status': 'success', 'books': books_list})
 
 def get_book(book_id):
     book = Book.query.get_or_404(book_id)
