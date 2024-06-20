@@ -10,6 +10,9 @@ class Book(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
+    author = db.relationship('Author', backref='books')
+    category = db.relationship('Category', backref='books')
+
     def __init__(self, isdb, title, cover, synopsis, publish_date, author_id, category_id):
         self.isdb = isdb
         self.title = title
