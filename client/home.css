@@ -1,0 +1,121 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+  
+h1 {
+    margin: 0;
+}
+
+#Z{
+    color: #007bff;
+}
+  
+.titulos{
+   
+    
+    padding: 20px;
+    margin-top: 50px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    opacity: 70%;
+}
+  #titulo-principal{
+
+    font-size: 20vh;
+    text-decoration: underline;
+    
+
+}
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    padding: 20px;
+}
+.buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    padding: 35px;
+}
+.buscador input[type="text"] {
+    width: 70vh;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.588);
+    outline: none;
+  }
+  .buscador button[type="submit"] {
+    background-color: #4e99e9;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.588);
+    display: inline-flex;
+    top: 0;
+    right: 0;
+    transition: .9s ease;
+  }
+  
+  .buscador button[type="submit"]:hover {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: #3f77b4;
+  }
+  
+
+#boton-buscador {
+    background-color: #4e99e9;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.588);
+    display: inline-flex;
+    top: 0;
+    right: 0;
+    transition: .9s ease;
+  }
+  
+#boton-buscador:hover {
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    background-color: #3f77b4;
+  }
+  
+#filtros{
+    justify-content: space-between;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.744)
+}
+
+#most{  
+  padding: 10px;
+  text-align: center;
+  margin-right: 20vh
+}
+
+a{
+  padding-left: 150px;
+}
+
+footer {
+    
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    color: #000000b6;
+    bottom: 0;
+  }
+
+  footer p{
+    margin: 0 250px;
+
+  }

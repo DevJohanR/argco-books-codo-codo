@@ -4,10 +4,66 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="home.css">
     <title>Vite + Vue</title>
   </head>
   <body>
+    <header>
+      <h1><span id="Z">Z</span>L</h1>
+      <button id="boton-buscador">login</button>
+    </header>
+    <div class="titulos">
+      <h1 id="titulo-principal"><span id="Z">Z</span>Library</h1>
+      <p>Part of Z-Library project. The world's largest ebook library</p>
+    </div>
+    <div class="search">
+      <div class="buscador">
+        <input placeholder="buscar por titulo" type="text">
+        <button type="submit" id="submit">Buscar</button>
+      
+      </div>
+      <div id="filtros">
+        <label for="generoSelect">Género:</label>
+        <select id="generoSelect">
+          <option value="">Todos</option>
+          <option value="Misterio y suspenso">Misterio y suspenso</option>
+          <option value="Ciencia ficción y Fantasía">Ciencia ficción y Fantasía</option>
+          <option value="Romance">Romance</option>
+          <option value="Ficción literaria">Ficción literaria</option>
+          <option value="Juveniles">Juveniles</option>
+          <option value="Desarrollo personal y autoayuda">Desarrollo personal</option>
+          <option value="Negocios y finanzas">Negocios y Finanzas</option>
+          <option value="Historia">Historia</option>
+          <option value="Biografias y memorias">Biografias</option>
+          <option value="Cocina y gastronomia">Gastronomia</option>
+
+          
+        </select>
+
+        <label for="lenguajeSelect">Lenguaje:</label>
+        <select id="lenguajeSelect">
+          <option value="">Todos</option>
+          <option value="Español">Español</option>
+          <option value="Inglés">Inglés</option>
+        </select>
+
+        <label for="anioInput">Año:</label>
+        <input type="number" id="anioInput" min="1900" max="2024">
+      </div>
+    </div> 
+    
+    <div id="most">
+      <a href=#>Mas populares</a>
+      <a href=#>Mejor valorados</a>
+    </div>
+
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+
+    <footer>
+      <p>free books since 2009</p>
+      <p>support@z-lib.io
+      </p>
+    </footer>
   </body>
 </html>
