@@ -2,19 +2,19 @@ from app.extensions import db
 
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    isdb = db.Column(db.String(50), nullable=False)
-    title = db.Column(db.String(100), unique=True, nullable=False)
-    cover = db.Column(db.String(50))
-    synopsis = db.Column(db.String(400), nullable=False)
-    publish_date = db.Column(db.DateTime)
-    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+    isbn = db.Column(db.String(13), nullable=False, unique=True)
+    title = db.Column(db.String(255), nullable=False)
+    cover = db.Column(db.String(255), nullable=False)
+    synopsis = db.Column(db.Text, nullable=False)
+    publication_date = db.Column(db.Date, nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('author.id'), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
 
-    def __init__(self, isdb, title, cover, synopsis, publish_date, author_id, category_id):
-        self.isdb = isdb
+    def __init__(self, isbn, title, cover, synopsis, publication_date, author_id, category_id):
+        self.isbn = isbn
         self.title = title
         self.cover = cover
         self.synopsis = synopsis
-        self.publish_date = publish_date
+        self.publication_date = publication_date
         self.author_id = author_id
         self.category_id = category_id
