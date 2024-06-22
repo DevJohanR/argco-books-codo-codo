@@ -2,17 +2,13 @@ from app.extensions import db
 from app.models.category import Category
 from flask import request, jsonify
 
-def create_category():
-    data = request.get_json()
-    new_category = Category(name=data['name'])
-    db.session.add(new_category)
-    db.session.commit()
-    return jsonify({'id': new_category.id, 'name': new_category.name}), 201
-
-def list_categories():
+def get_all_categories():
     categories = Category.query.all()
-    return jsonify([{'id': category.id, 'name': category.name} for category in categories])
+    categories_data = [category.to_dict() for category in categories]
 
-def get_category(category_id):
-    category = Category.query.get_or_404(category_id)
-    return jsonify({'id': category.id, 'name': category.name})
+    return jsonify(categories_data), 200
+
+def get_category_by_id(id):
+    category = Category.query.get_or_404(id)
+
+    return jsonify(category.to_dict()), 200

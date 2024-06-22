@@ -2,17 +2,13 @@ from app.extensions import db
 from app.models.author import Author
 from flask import request, jsonify
 
-def create_author():
-    data = request.get_json()
-    new_author = Author(name=data['first_name'], last_name=data.get('last_name', ''))
-    db.session.add(new_author)
-    db.session.commit()
-    return jsonify({'id': new_author.id, 'first_name': new_author.first_name, 'last_name': new_author.last_name}), 201
-
-def list_authors():
+def get_all_authors():
     authors = Author.query.all()
-    return jsonify([{'id': author.id, 'first_name': author.first_name, 'last_name': author.last_name} for author in authors])
+    authors_data = [author.to_dict() for author in authors]
 
-def get_author(author_id):
-    author = Author.query.get_or_404(author_id)
-    return jsonify({'id': author.id, 'first_name': author.first_name, 'last_name': author.last_name})
+    return jsonify(authors_data), 200
+
+def get_author_by_id(id):
+    author = Author.query.get_or_404(id)
+
+    return jsonify(author.to_dict()), 200

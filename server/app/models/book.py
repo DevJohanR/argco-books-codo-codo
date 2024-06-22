@@ -18,3 +18,15 @@ class Book(db.Model):
         self.publication_date = publication_date
         self.author_id = author_id
         self.category_id = category_id
+
+    def to_dict(self): 
+        return {
+            'id': self.id,
+            'isbn': self.isbn,
+            'title': self.title,
+            'cover': self.cover,
+            'synopsis': self.synopsis,
+            'publication_date': self.publication_date,
+            'author': self.author.to_dict(),
+            'category': self.category.to_dict()
+        }
