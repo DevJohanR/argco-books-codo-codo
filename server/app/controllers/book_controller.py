@@ -18,13 +18,13 @@ def create_book():
     if not category:
         return jsonify({'error': 'Category not found'}), 404
 
-    publish_date = datetime.strptime(data['publish_date'], '%Y-%m-%d')
+    publication_date = datetime.strptime(data['publication_date'], '%Y-%m-%d')
     new_book = Book(
-        isdb=data['isdb'], 
+        isbn=data['isbn'], 
         title=data['title'], 
         cover=data['cover'],
         synopsis=data['synopsis'], 
-        publish_date=publish_date,
+        publication_date=publication_date,
         author_id=data['author_id'],
         category_id=data['category_id']
     )
